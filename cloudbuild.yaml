@@ -1,7 +1,7 @@
 steps:
   # Clone the repository from GitHub
   - name: 'gcr.io/cloud-builders/git'
-    args: ['clone', 'https://github.com/kilo10z/responsive-travel-website.git', '/workspace']
+    args: ['clone', 'https://github.com/kilo10z/responsive-travel-website.git', '/workspace/new-directory']
 
   # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
