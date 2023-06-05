@@ -1,4 +1,11 @@
 steps:
+  # Remove existing /workspace directory
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - 'rm -rf /workspace'
+
   # Clone the repository from GitHub
   - name: 'gcr.io/cloud-builders/git'
     args: ['clone', 'https://github.com/kilo10z/responsive-travel-website.git', '/workspace']
