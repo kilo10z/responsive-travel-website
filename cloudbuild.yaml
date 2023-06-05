@@ -1,14 +1,7 @@
 steps:
-  # Create the /repo directory
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - 'mkdir /repo'
-
   # Clone the repository from GitHub
   - name: 'gcr.io/cloud-builders/git'
-    args: ['clone', 'https://github.com/kilo10z/responsive-travel-website.git', '/repo']
+    args: ['clone', 'https://github.com/kilo10z/responsive-travel-website.git', '/workspace']
 
   # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
@@ -16,7 +9,7 @@ steps:
       - 'build'
       - '-t'
       - 'gcr.io/l1-team-testing/responsive-travel-website:$COMMIT_SHA'
-      - '/repo'
+      - '/workspace'
 
   # Push the Docker image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
