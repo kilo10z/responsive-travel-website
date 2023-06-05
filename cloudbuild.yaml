@@ -28,3 +28,6 @@ steps:
       - '--project=l1-team-testing'
       - '--quiet'
 
+options:
+  logging: CLOUD_LOGGING_ONLY
+
