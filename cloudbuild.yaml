@@ -1,6 +1,6 @@
 steps:
   # Clone the repository from GitHub
-  steps:
+
   # Clear the workspace
   - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
