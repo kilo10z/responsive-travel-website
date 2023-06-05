@@ -22,7 +22,7 @@ steps:
         '--image=gcr.io/l1-team-testing/gcr.io/l1-team-testing/responsive-travel-website:$SHORT_SHA',
         '--region=us-central1',
         '--project=l1-team-testing',
-	      '--quiet'
+        '--quiet'
 
       ]
 
