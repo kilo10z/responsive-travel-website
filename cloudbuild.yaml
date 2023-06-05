@@ -1,14 +1,7 @@
 steps:
-  # Remove existing /workspace directory
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - 'rm -rf /workspace || true'
-
   # Clone the repository from GitHub
   - name: 'gcr.io/cloud-builders/git'
-    args: ['clone', 'https://github.com/kilo10z/responsive-travel-website.git', '/workspace']
+    args: ['clone', 'https://github.com/kilo10z/responsive-travel-website.git', '/repo']
 
   # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
@@ -16,7 +9,7 @@ steps:
       - 'build'
       - '-t'
       - 'gcr.io/l1-team-testing/responsive-travel-website:$COMMIT_SHA'
-      - '.'
+      - '/repo'
 
   # Push the Docker image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
