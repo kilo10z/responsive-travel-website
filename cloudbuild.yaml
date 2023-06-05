@@ -1,0 +1,27 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/l1-team-testing/github.com/kilo10z/responsive-travel-website
+:$COMMIT_SHA'
+      - '.'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'gcr.io/l1-team-testing/github.com/kilo10z/responsive-travel-website
+:$COMMIT_SHA'
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'app'
+      - 'deploy'
+      - '--image-url=gcr.io/l1-team-testing/github.com/kilo10z/responsive-travel-website
+:$COMMIT_SHA'
+      - '--project=l1-team-testing'
+      - '--version=v1'
+      - '--quiet'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
