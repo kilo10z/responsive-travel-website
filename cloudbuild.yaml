@@ -23,7 +23,7 @@ steps:
       - 'app'
       - 'deploy'
       - '--image-url=gcr.io/l1-team-testing/responsive-travel-website:$COMMIT_SHA'
-      - '--version=$COMMIT_SHA'
+      - '--version=v1'
       - '--project=l1-team-testing'
       - '--quiet'
 
