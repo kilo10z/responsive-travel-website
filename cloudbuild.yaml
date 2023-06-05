@@ -1,4 +1,8 @@
 steps:
+  # Clone the repository from GitHub
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone', 'https://github.com/kilo10z/responsive-travel-website.git', '/workspace']
+
   # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
     args:
@@ -18,7 +22,7 @@ steps:
     args:
       - 'app'
       - 'deploy'
-      - 'status'  
+      - 'status'
       - '--image-url=gcr.io/l1-team-testing/responsive-travel-website:$COMMIT_SHA'
       - '--version=v1'
       - '--project=l1-team-testing'
