@@ -1,27 +1,29 @@
 steps:
+  # Clone the repository from GitHub
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone', 'https://github.com/kilo10z/responsive-travel-website.git', '/workspace']
+
+  # Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
       - '-t'
-      - 'gcr.io/l1-team-testing/github.com/kilo10z/responsive-travel-website
-:$COMMIT_SHA'
+      - 'gcr.io/l1-team-testing/responsive-travel-website:$COMMIT_SHA'
       - '.'
 
+  # Push the Docker image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/l1-team-testing/github.com/kilo10z/responsive-travel-website
-:$COMMIT_SHA'
+      - 'gcr.io/l1-team-testing/responsive-travel-website:$COMMIT_SHA'
 
+  # Deploy the Docker image to App Engine Flexible
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'app'
       - 'deploy'
-      - '--image-url=gcr.io/l1-team-testing/github.com/kilo10z/responsive-travel-website
-:$COMMIT_SHA'
+      - '--image-url=gcr.io/l1-team-testing/responsive-travel-website:$COMMIT_SHA'
+      - '--version=$COMMIT_SHA'
       - '--project=l1-team-testing'
-      - '--version=v1'
       - '--quiet'
 
-options:
-  logging: CLOUD_LOGGING_ONLY
