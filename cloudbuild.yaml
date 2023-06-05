@@ -1,4 +1,11 @@
 steps:
+  # Create the /repo directory
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - 'mkdir /repo'
+
   # Clone the repository from GitHub
   - name: 'gcr.io/cloud-builders/git'
     args: ['clone', 'https://github.com/kilo10z/responsive-travel-website.git', '/repo']
