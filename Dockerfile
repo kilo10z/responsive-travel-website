@@ -1,5 +1,5 @@
 FROM nginx:latest
-
+COPY nginx.conf /etc/nginx/nginx.conf
 # Set the working directory
 WORKDIR /usr/share/nginx/html
 
