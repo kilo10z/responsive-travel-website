@@ -4,7 +4,7 @@ steps:
     entrypoint: 'bash'
     args:
       - '-c'
-      - 'rm -rf /workspace'
+      - 'rm -rf /workspace || true'
 
   # Clone the repository from GitHub
   - name: 'gcr.io/cloud-builders/git'
