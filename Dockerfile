@@ -1,11 +1,13 @@
-FROM php:7.4-apache
-
+FROM nginx:latest
+COPY nginx.conf /etc/nginx/nginx.conf
 # Set the working directory
-WORKDIR /var/www/html
+WORKDIR /usr/share/nginx/html
 
 # Copy the entire project directory into the container
-COPY . /var/www/html/
+COPY . .
 
+# Expose the port
+EXPOSE 8080
 
-# Start the Apache web server
-CMD ["apache2-foreground"]
+# Start the Nginx server
+CMD ["nginx", "-g", "daemon off;"]
