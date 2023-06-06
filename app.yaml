@@ -4,7 +4,7 @@ service: responsive-travel-website
 automatic_scaling:
   min_num_instances: 1
   max_num_instances: 10
-  nginx_timeout: 60
+nginx_timeout: 60
 
 
 
