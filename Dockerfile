@@ -1,5 +1,5 @@
 FROM nginx:latest
-COPY nginx.conf /etc/nginx/nginx.conf
+
 # Set the working directory
 WORKDIR /usr/share/nginx/html
 
@@ -7,7 +7,8 @@ WORKDIR /usr/share/nginx/html
 COPY . .
 
 # Expose the port
-EXPOSE 80
+EXPOSE 8080
 
 # Start the Nginx server
 CMD ["nginx", "-g", "daemon off;"]
+
