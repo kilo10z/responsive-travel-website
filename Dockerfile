@@ -2,7 +2,7 @@
 FROM httpd:latest
 
 # Copy your website files into the container
-COPY ./path/to/your/website /usr/local/apache2/htdocs/
+COPY . /usr/local/apache2/htdocs/
 
 # Expose port 80 for HTTP traffic
 
