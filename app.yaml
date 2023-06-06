@@ -1,10 +1,9 @@
 runtime: custom
 env: flex
-service: responsive-travel-website
+service: default
 automatic_scaling:
   min_num_instances: 1
   max_num_instances: 10
-
 
 
 
