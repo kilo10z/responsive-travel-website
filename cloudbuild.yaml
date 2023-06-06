@@ -4,22 +4,22 @@ steps:
       [
         'build',
         '-t',
-        'gcr.io/l1-team-testing/responsive-travel-website:$SHORT_SHA',
+        'gcr.io/l1-scoping-test/responsive-travel-website:$SHORT_SHA',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
         'push',
-        'gcr.io/l1-team-testing/responsive-travel-website:$SHORT_SHA',
+        'gcr.io/l1-scoping-test/responsive-travel-website:$SHORT_SHA',
       ]
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       [
         'app',
         'deploy',
-        '--image-url=gcr.io/l1-team-testing/responsive-travel-website:$SHORT_SHA',
-        '--project=l1-team-testing',
+        '--image-url=gcr.io/l1-scoping-test/responsive-travel-website:$SHORT_SHA',
+        '--project=l1-scoping-test',
         '--quiet'
 
       ]
