@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 FROM nginx:latest
 COPY nginx.conf /etc/nginx/nginx.conf
 # Set the working directory
@@ -24,4 +24,4 @@ COPY . /usr/local/apache2/htdocs/
 # Start Apache server when the container starts
 CMD ["httpd", "-D", "FOREGROUND"]
 
->>>>>>> 5786dd1373623e3458914d74c370ce8c1131dc15
+
