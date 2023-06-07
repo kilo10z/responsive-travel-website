@@ -1,6 +1,6 @@
 runtime: custom
 env: flex
-service: default
+service: my-responsive-website
 automatic_scaling:
   min_num_instances: 1
   max_num_instances: 10
