@@ -1,9 +1,17 @@
+
 runtime: custom
 env: flex
 service: my-responsive-website
+
 automatic_scaling:
   min_num_instances: 1
   max_num_instances: 10
 
+# Add timeout settings
+env_variables:
+  NGINX_PROXY_READ_TIMEOUT: 120s
+  NGINX_PROXY_CONNECT_TIMEOUT: 60s
+
+# ...
 
 
