@@ -2,35 +2,28 @@ steps:
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'bash'
     args:
-    - '-
+      - '-c'
+      - 'gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy'
 
   - name: 'gcr.io/cloud-builders/docker'
     args:
-      [
-        'build',
-        '-t',
-        'gcr.io/l1-team-testing/responsive-travel-website:$SHORT_SHA',
-        '.',
-      ]
+      - 'build'
+      - '-t'
+      - 'gcr.io/l1-team-testing/responsive-travel-website:$SHORT_SHA'
+      - '.'
+
   - name: 'gcr.io/cloud-builders/docker'
     args:
-      [
-        'push',
-        'gcr.io/l1-team-testing/responsive-travel-website:$SHORT_SHA',
-      ]
+      - 'push'
+      - 'gcr.io/l1-team-testing/responsive-travel-website:$SHORT_SHA'
+
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
-      [
-        'app',
-        'deploy',
-        '--image-url=gcr.io/l1-team-testing/responsive-travel-website:$SHORT_SHA',
-        '--project=l1-team-testing',
-        '--quiet'
-
-      ]
-
-
+      - 'app'
+      - 'deploy'
+      - '--image-url=gcr.io/l1-team-testing/responsive-travel-website:$SHORT_SHA'
+      - '--project=l1-team-testing'
+      - '--quiet'
 
 options:
   logging: CLOUD_LOGGING_ONLY
-
