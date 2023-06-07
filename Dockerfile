@@ -1,14 +1,5 @@
+FROM nginx:latest
 
+COPY . /usr/share/nginx/html
 
-# Use the official Apache base image
-FROM httpd:latest
-
-# Copy your website files into the container
-COPY . /usr/local/apache2/htdocs/
-
-# Expose port 80 for HTTP traffic
 EXPOSE 8080
-# Start Apache server when the container starts
-CMD ["httpd", "-D", "FOREGROUND"]
-
-
