@@ -13,5 +13,6 @@ env_variables:
   NGINX_PROXY_CONNECT_TIMEOUT: 60s
 
 # ...
-
+skip_files:
+- cloudbuild.yaml
 
