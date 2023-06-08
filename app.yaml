@@ -13,6 +13,8 @@ env_variables:
   NGINX_PROXY_CONNECT_TIMEOUT: 60s
 
 # ...
+skip_files:
+- cloudbuild.yaml
 
 # This is the entrypoint code for the Nginx server.
 entrypoint: /usr/sbin/nginx -g "daemon off;"
