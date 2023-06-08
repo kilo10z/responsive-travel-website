@@ -9,8 +9,8 @@ automatic_scaling:
 
 # Add timeout settings
 env_variables:
-  NGINX_PROXY_READ_TIMEOUT: 600s
-  NGINX_PROXY_CONNECT_TIMEOUT: 600s
+ # NGINX_PROXY_READ_TIMEOUT: 600s
+ # NGINX_PROXY_CONNECT_TIMEOUT: 600s
 
 # ...
 skip_files:
