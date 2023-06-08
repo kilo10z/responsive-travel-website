@@ -1,27 +1,16 @@
-<<<<<<< HEAD
-FROM nginx:latest
-COPY nginx.conf /etc/nginx/nginx.conf
+FROM python:3.9
+
 # Set the working directory
-WORKDIR /usr/share/nginx/html
+WORKDIR /app
 
-# Copy the entire project directory into the container
-COPY . .
+# Copy the website files to the container
+COPY . /app
 
-# Expose the port
+# Install dependencies if needed (e.g., if you have a requirements.txt file)
+# RUN pip install -r requirements.txt
+
+# Set the Gunicorn command to run the server
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "server:WebServer"]
+
+# Expose the port used by Gunicorn
 EXPOSE 8080
-
-# Start the Nginx server
-CMD ["nginx", "-g", "daemon off;"]
-=======
-# Use the official Apache base image
-FROM httpd:latest
-
-# Copy your website files into the container
-COPY . /usr/local/apache2/htdocs/
-
-# Expose port 80 for HTTP traffic
-
-# Start Apache server when the container starts
-CMD ["httpd", "-D", "FOREGROUND"]
-
->>>>>>> 5786dd1373623e3458914d74c370ce8c1131dc15
