@@ -16,9 +16,3 @@ env_variables:
 skip_files:
 - cloudbuild.yaml
 
-# This is the entrypoint code for the Nginx server.
-<<<<<<< HEAD
-#entrypoint: /usr/sbin/nginx -g "daemon off;"
-=======
-entrypoint: /usr/sbin/nginx -g "daemon off;"
->>>>>>> 3522f5059cbdfd4d2da9fb60833612727a279810

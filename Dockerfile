@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 FROM python:3.9
 
 # Set the working directory
@@ -14,10 +14,4 @@ COPY . /app
 CMD ["gunicorn", "--bind", "0.0.0.0:8080", "server:WebServer"]
 
 # Expose the port used by Gunicorn
-=======
-FROM nginx:latest
-
-COPY . /usr/share/nginx/html
-
->>>>>>> 3522f5059cbdfd4d2da9fb60833612727a279810
 EXPOSE 8080
